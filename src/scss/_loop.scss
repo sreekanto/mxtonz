@@ -1,0 +1,105 @@
+body{
+	font-family: $titillium;
+	color: #393939;
+	background-color: $light;
+}
+.btn{
+    @include btn
+}
+a{text-decoration: none;}
+a:hover, a:focus{text-decoration:none;}
+a:hover, a:active{outline:none}
+button, button:focus {outline:none}
+.heading{
+  @include heading();
+  &.heading-divider{
+  	margin-bottom: 0rem;
+  	flex-grow: 1;
+  	position: relative;
+  	overflow: hidden;
+  	span{
+  		background-color: $light;
+  		z-index: 1;
+  		&:last-child{
+  			padding-right: 1rem;
+  		}
+  	}
+  	&::before{
+  		content: "";
+  		z-index: -1;
+  		position: absolute; 
+  		left: 0%;
+  		top: 50%;
+  		@include transform(translateY(-50%));
+  		width: 110%;
+  		border-top: 1px solid #c4ced7;
+  	}
+  }
+}
+
+p{
+	@include font(16px);
+	font-weight: 300;
+}
+h3{
+	@include font(28px);
+}
+h4{
+	@include font(24px);
+}
+h5{
+	@include font(18px);
+}
+img {
+    max-width:100%;
+}
+@each $name, $value in $colors{
+	.text-#{$name}{
+		color: $value!important;
+	}
+	.bg-#{$name}{
+		background-color: $value!important;
+	}
+	.btn-#{$name}{
+		background-color: $value!important;
+		color: $white!important;
+	}
+}
+
+@for $i from 6 to 15{
+	.pt-#{$i}{
+		padding-top: $i * 10px;
+		@include mediaMax(991px){
+			padding-top: ($i - 1) * 10px;
+		}
+		@include mediaMax(767px){
+			padding-top: ($i - 1.5) * 10px;
+		}
+		@include mediaMax(575px){
+			padding-top: ($i - 2) * 10px;
+		}
+
+	}
+	.pb-#{$i}{
+		padding-bottom: $i * 10px;
+		@include mediaMax(991px){
+			padding-bottom: ($i - 1) * 10px;
+		}
+		@include mediaMax(767px){
+			padding-bottom: ($i - 1.5) * 10px;
+		}
+		@include mediaMax(575px){
+			padding-bottom: ($i - 2) * 10px;
+		}
+	}
+	.py-#{$i}{
+		@extend .pt-#{$i};
+		@extend .pb-#{$i};
+	}
+}
+.col-8{
+	@include mediaMax(380px){
+		flex: 0 0 100%; 
+    	max-width: 100%;
+	}
+}

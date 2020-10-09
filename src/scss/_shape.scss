@@ -1,0 +1,42 @@
+.shape {
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    line-height: 0;
+    direction: ltr;
+    &-top{
+	    top: -2px;
+	}
+	&-bottom{
+		bottom: -2px;
+	}
+    svg {
+	    height: 15rem;
+	    @include transform(translateX(-50%) rotateX(180deg));
+	    display: block;
+	    width: calc(100% + 1.3px);
+	    position: relative;
+	    left: 50%;
+	    @include mediaMax(1199px){
+	    	height: 12rem;
+	    }
+	    @include mediaMax(991px){
+	    	height: 10rem;
+	    }
+	    @include mediaMax(767px){
+	    	height: 8rem;
+	    }
+	    @include mediaMax(575px){
+	    	height: 6rem;
+	    }
+	    path{
+	    	fill: $light;
+	    	-webkit-transform-origin: center;
+		    -ms-transform-origin: center;
+		    transform-origin: center;
+		    -webkit-transform: rotateY(0deg);
+		    transform: rotateY(0deg);
+	    }
+	}
+}

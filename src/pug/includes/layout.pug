@@ -1,0 +1,18 @@
+include mixin
+include data
+- var bodyClass;
+- var isAboutActiveClass;
+block variables
+doctype html
+html(lang='en')
+	block headSection
+		include ../includes/head
+	body(class=bodyClass ? bodyClass : 'page')
+		block headerSection
+			include ../includes/header
+		block BannerSection
+			include ../includes/banner
+		block mainSection
+			h1 content will be here
+		block footerSection
+			include ../includes/footer

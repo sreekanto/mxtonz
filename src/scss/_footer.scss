@@ -1,0 +1,66 @@
+.footer{
+	position: relative;
+	background-color: $indigo;
+	@include linearGradient((150deg, $indigoDark 30%, darken($indigo, 2%) 40%));
+	@extend .pt-6;
+	
+
+	// .news-wrapper{
+	// 	margin-bottom: 16rem;
+	// 	overflow: hidden;
+	// 	@include mediaMax(991px){
+	// 	    margin-bottom: 10em;
+	// 	}
+	// 	@include mediaMax(767px){
+	// 	    margin-bottom: 6rem;
+	// 	}
+	// }
+	&-container-max{
+		max-width: 45rem;
+	}
+	&-logo{
+		filter: brightness(3000%);
+	}
+	@at-root form{
+		margin: 3rem auto 3rem;
+		@include mediaMax(991px){
+			margin-top: 2rem;
+			margin-bottom: 2rem;
+		}
+		.form-group{
+			.form-control{
+				height: 3rem;
+				//@include radius(2rem);
+				padding-left: 1.5rem;
+				&::-webkit-placeholder{
+					color: #737373;
+				}
+				&-textarea{
+					height: 8rem;
+					resize: none;
+				}
+			}
+			.btn{
+				@include radius(0.25rem);
+			}
+		}
+	}
+}
+.social-list{
+		li{
+			a{
+				@include icon(2.5rem, 50%, 1px solid $danger, $danger, $white);
+				@include d-flex;
+				svg{
+					fill: $white;
+					width: 1rem;
+					height: auto;
+				}
+			}
+		}
+	}
+.copy-right{
+		font-size: 15px;
+		font-weight: 300;
+		color: inherit;
+	}

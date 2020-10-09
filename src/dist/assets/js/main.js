@@ -1,0 +1,1 @@
+"use strict";$(function(){AOS.init(),$("#menu-navber li a").on("click",function(t){""!==this.hash&&(t.preventDefault(),t=this.hash,$("html, body").animate({scrollTop:$(t).offset().top-50},800,function(){}))}),$("#testimonialSlider").owlCarousel({items:3,loop:!0,margin:10,dots:!0,nav:!0,center:!0,responsive:{0:{items:1},768:{items:2},992:{items:3}}})});

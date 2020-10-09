@@ -1,0 +1,102 @@
+extends includes/layout.pug
+block variables
+	- bodyClass = "page-front"
+	- isHome = true
+block  BannerSection
+		section(class='banner banner-full text-white d-flex align-items-center')
+			+shape({className:'shape-bottom'})
+			.container
+				.row
+					.col-lg-10.col-xl-8
+						h1(data-aos='fade-up') The Best in terrain
+							span Powerful Softwate sell
+						p(data-aos='fade-up', data-aos-delay='500') Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry.
+						a(href='index.html', class='btn', data-aos='fade-up', data-aos-delay='1000') Get Free Started
+block mainSection
+		//about section start
+		section(id='about', class='about-wrpper py-6')
+			.container
+				.row.align-items-center.mx-xl-n5
+					.col-lg-7.pr-lg-5.mb-4.mb-lg-0
+						+dualHeading('About ', 'Mxtonz Task')
+						p(data-aos='fade-up', data-aos-delay='1000') Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+						p(data-aos='fade-up', data-aos-delay='1500') Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley. Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+						a(href='index.html', class='btn mt-3 mt-lg-4', data-aos='fade-up', data-aos-delay='2000') read more
+					div(class='col-lg-5', data-aos='fade-up')
+						img(src='assets/images/1.jpg', alt='about thumb', class='img-fluid w-100 rounded-lg shadow	', data-aos='fade-up')
+				//team start
+		//products section start
+		section(id='product' class='product-wrapper py-6')
+			.container
+				.row
+					.col-md-8.col-lg-6.text-center.mx-auto
+						+dualHeading('Our ', ' Product', 'heading heading-divider')
+						p(class='mt-3 mt-lg-4', data-aos='fade-up', data-aos-delay='500') Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+				.row
+					each product in products
+						+product(product)
+		//customer stories start
+		section(id='testimonial', class='testimonial-wrapper py-6 bg-white')
+			.container
+				+dualHeading('Customer', ' Stories', 'heading text-center mb-4 mb-lg-5')
+				div(id='testimonialSlider', class='owl-carousel nav-center nav-x-center')
+					+storie({})
+					+storie({})
+					+storie({})
+					+storie({})
+					+storie({})
+				 
+		//gallery start
+		section(id='gallery' class='gallery-wrapper pt-6')
+			.container
+				.row
+					.col-md-8.col-lg-6.text-center.mx-auto
+						+dualHeading('Upcoming', ' Gallery', 'heading heading-divider')
+						p(class='mt-3 mt-lg-4', data-aos='fade-up', data-aos-delay='500') Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+			div(class='gallery mt-4 mt-lg-5')
+				each item, index in gallery
+					- let galleryIndex = 1
+					- galleryIndex = galleryIndex + 1
+					div(class='gallery-item gallery-item-' + Number(index + 1) data-aos='fade-up')
+						+img(item)
+		section(id='team', class='team-wrapper py-6')
+			.container
+				.row
+					.col-md-8.col-lg-6.text-center.mx-auto
+						+dualHeading('Meet ', '  Team Menbers', 'heading heading-divider')
+						p(class='mt-3 mt-lg-4', data-aos='fade-up', data-aos-delay='500') Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the standard dummy text ever since the 1500s.
+				.row
+					+teamMember({name: 'Olivia Keth', position: 'Rock Singer', thumb: '1.jpg'})
+					+teamMember({name: 'Bond J.Kerry', position: 'Rock Singer', thumb: '1.jpg'})
+					+teamMember({name: 'Smith Bravo', position: 'Rock Singer', thumb: '1.jpg'})
+					+teamMember({name: 'Merry Luke', position: 'Rock Singer', thumb: '1.jpg'})
+					+teamMember({name: 'Luther Gulik', position: 'Rock Singer', thumb: '1.jpg'})
+					+teamMember({name: 'Maria Jack', position: 'Rock Singer', thumb: '1.jpg'})
+					+teamMember({name: 'Bond J.Kerry', position: 'Rock Singer', thumb: '1.jpg'})
+					+teamMember({name: 'Smith Bravo', position: 'Rock Singer', thumb: '1.jpg'})
+				//start
+		section(id='event', class='bg-dark text-white text-center py-6')
+			.container
+				.row.align-items-center.justify-content-center
+					.col-md-10.col-lg-8
+						+heading('Loreem Ipsum is', 'heading-divider text-white')
+						.mt-3.mt-lg-4
+							p(class='lead' data-aos='fade-up') Scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley  dummy text ever since the 1500s.
+							p(class='lead' data-aos='fade-up') Scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+					//.col-lg-6
+						//+img({src: 'about-thumb2.png', alt: 'about thumb', className:'img-fluid'})
+		//blog start
+		section(id='blog', class='blog-wrapper py-8')
+			.container
+				.row
+					.col-md-8.col-lg-6.text-center.mx-auto
+						+dualHeading('Latest', ' Blog', 'heading heading-divider')
+						p(class='mt-3 mt-lg-4', data-aos='fade-up', data-aos-delay='500') Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+				.row.pt-4
+					.col-lg-6.d-flex.flex-column.justify-content-between.mt-3
+						+blog({thumb: '1.jpg'},'thumbnail')
+						+blog({thumb: '1.jpg'},'thumbnail')
+					.col-lg-6.mt-3
+						+blog({thumb: '1.jpg'},'overlay')
+
+block prepend footerSection

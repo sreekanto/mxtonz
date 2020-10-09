@@ -1,0 +1,48 @@
+.banner{
+	position: relative;
+	background-color: $indigo;
+	@extend .py-12; 
+	@include mediaMax(575px){
+		height: auto!important;
+	}
+	.container{
+		@extend .pt-10;
+		@include mediaMin(1400px){
+			padding-top: 7rem;
+		}
+		@include mediaMin(1600px){
+			padding-top: 10rem;
+		}
+	}
+	h1{
+		@include heading(4.125rem, inherit, 2rem, uppercase, 600);
+		line-height: 1;
+		span{
+			//@include heading(3.25rem, null, null, null, null);
+			font-size: 78.79%;
+			display: block;
+		}
+		@include mediaMax(575px){
+			margin-bottom: 1rem;
+		}
+	}
+	h3{
+		@include font(26px);
+		font-weight: 600;
+		font-style: italic;
+		margin-bottom: 1rem;
+	}
+	p{
+		@include font(20px);
+	}
+	a{
+		@include btn(16px, 0.75rem 4.5rem, $white, null, null, null);
+		margin-top: 1rem;
+	}
+	&-full{
+		//@include background($light, no-repeat, center bottom);
+
+		height: calc(70vh + 300px);
+		max-height: 992px;
+	}
+}

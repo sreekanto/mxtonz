@@ -1,0 +1,223 @@
+$white: #ffffff;
+$black: #000000;
+$info: #6dd5c9;
+$infoDark: #316ed2;
+$danger: #fc427f;
+$indigo: #6610f2;
+$indigoDark: dark($indigo, 20%);
+$light: #e6f3f4;
+$gray: #393939;
+$colors: ("white": #ffffff, "black":#000000, "info": #6dd5c9, "danger": #fc427f, "indigo": #6610f2, "light": #e6f3f4, );
+$titillium: 'Titillium Web', sans-serif;
+$fonts : ("popp": $titillium);
+@mixin background($color: null, $repeat: no-repeat, $position: center center, $size: cover){
+    background-color: $color;
+    //background-image: url($url);
+    background-repeat: $repeat;
+    background-position: $position;
+    background-size: $size;
+    //background-attachment: fixed;
+}
+@mixin linearGradient($gradient: (to bottom, $light, $white)){
+    background-image: -webkit-linear-gradient($gradient), ;
+    background-image: linear-gradient($gradient);
+}
+@mixin radialGradient($gradient: (circle, rgba($black, 80%), transparent)){
+    background-image: -webkit-radial-gradient($gradient);
+    background-image: radial-gradient($gradient);
+}
+@mixin d-flex($d:flex, $items: center, $content: center){
+	display: -webkit-$d;
+	display: $d;
+	align-items: $items;
+	justify-content: $content;
+}
+@mixin radius($radius: 50%){
+	border-radius: $radius;
+}
+@mixin transform($value...){
+    -webkit-transform: $value;
+    -moz-transform: $value;
+    -o-transform: $value;
+    transform: $value;
+}
+@mixin transition($property: all, $duration: 600ms, $function: linear, $delay: 0ms){
+    transition-property: $property;
+    transition-duration: $duration;
+    transition-timing-function: $function;
+    transition-delay: $delay;
+}
+@mixin shadow($value...){
+    -webkit-box-shadow: $value;
+    -moz-box-shadow: $value;
+    box-shadow: $value;
+}
+
+@mixin media($max, $min){
+    @media screen and (max-width: $max) and (min-width: $min){
+        @content;
+    }
+}
+@mixin mediaMax($value){
+    @media screen and (max-width: $value){
+        @content;
+    }
+}
+@mixin mediaMin($value){
+    @media screen and (min-width: $value){
+        @content;
+    }
+}
+
+@mixin icon($width: 2.5rem, $rad: 50%, $border: none, $bg: inherit, $color: inherit){
+	width: $width;
+	height: $width;
+	border: $border;
+	@include d-flex;
+	@include radius($rad);
+	background-color: $bg;
+	color: $color;
+	@include mediaMax(991px){
+		width: $width - 0.5rem;
+		height: $width - 0.5rem;
+	}
+	@include mediaMax(575px){
+		width: $width - 1rem;
+		height: $width - 1rem;
+	}
+}
+@mixin columns($column: 2){
+	-webkit-column-count: $column;
+	-moz-column-count: $column;
+	column-count: $column;
+	@include mediaMax(767px){
+		-webkit-column-count: $column - 1;
+		-moz-column-count: $column - 1;
+		column-count: $column - 1;
+	}
+}
+@mixin font($size: 18px){ 
+	font-size: $size;
+    @if $size >=24px{
+        @include mediaMax(1199px){
+           font-size: $size - 2;
+        }
+        @include mediaMax(991px){
+           font-size: $size - 3;
+        }
+        @include mediaMax(767px){
+            font-size: $size - 4;
+        }
+        @include mediaMax(575px){
+            font-size: $size - 5;
+        }
+    } @else if $size >= 18px {
+        @include mediaMax(991px){
+           font-size: $size - 1;
+        }
+        @include mediaMax(767px){
+            font-size: $size - 2;
+        }
+        @include mediaMax(575px){
+            font-size: $size - 3;
+        }
+    } @else{
+         @include mediaMax(767px){
+            font-size: $size - 1;
+        }
+    }
+}
+
+@mixin heading($size: 2.8125rem, $color: $gray, $mb: 1rem, $trans: capitalize, $weight: bold, $family: null){
+    font-size: $size;
+    color: $color;
+    margin-bottom: $mb;
+    text-transform: $trans;
+    font-family: $family;
+    font-weight: $weight;
+    @if $size >= 3.5rem {
+        @include mediaMax(1199px){
+            font-size: $size - 0.5;
+        }
+        @include mediaMax(991px){
+            font-size: $size - 0.75;
+        }
+        @include mediaMax(767px){
+            font-size: $size - 1;
+        }
+        @include mediaMax(575px){
+            font-size: $size - 1.125;
+        }
+        @include mediaMax(420px){
+            font-size: $size - 1.5;
+        }
+        @include mediaMax(360px){
+            font-size: $size - 2;
+        }
+    } @else{
+        @include mediaMax(1199px){
+            font-size: $size - 0.325;
+        }
+        @include mediaMax(991px){
+            font-size: $size - 0.5;
+        }
+        @include mediaMax(767px){
+            font-size: $size - 0.625;
+        }
+        @include mediaMax(575px){
+            font-size: $size - 0.75;
+        }
+        @include mediaMax(420px){
+            font-size: $size - 0.875;
+        }
+        @include mediaMax(360px){
+            font-size: $size - 1;
+        }
+    // $font_class : string.quote($family);
+    // @at-root &-#{$font_class}{
+    //     font-family: $titillium;
+    //     color: red;
+    // }
+     }
+}
+@mixin btn($size: 14px, $pad: 0.75rem 2.5rem, $color: $white, $bg: $danger, $rad: 2rem, $weight: bold, $trasfer: uppercase){
+	@include font($size);
+    color:$color;
+	font-weight: $weight;
+    text-transform: $trasfer;
+	padding:$pad;
+	background-color: $bg;
+	@include radius($rad);
+	display:inline-block;
+	text-align:center;
+	text-decoration: none;
+	vertical-align:middle;
+	-webkit-user-select:none;
+	-moz-user-select:none;
+	-ms-user-select:none;
+	user-select:none;
+	border:1px solid transparent;
+	line-height:1.5;
+	transition:color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    @include mediaMax(575px){
+        padding: 0.5rem 1.5rem;
+    }
+    &:hover{
+        color: $white;
+        background-color: $danger;
+    }
+}
+
+@mixin list($font: 18px, $color:inherit , $family: $titillium, $weight: normal){
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    li{
+      a{
+        @include font($font);
+        color: $color;
+        font-family: $family;
+        font-weight: $weight;
+      }
+    }
+}

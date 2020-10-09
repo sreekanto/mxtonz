@@ -1,0 +1,25 @@
+header(id='header' class='fixed-top bg-indigo'  data-aos='fade-down')
+			.navbar.navbar-expand-lg.navbar-dark
+				.container
+					a('href'='index.html', 'class'='navbar-brand')
+						img(src='assets/images/logo.png' alt='logo')
+					button(type='button' class='navbar-toggler' data-toggle='collapse' data-target='#navMobile')
+						span(class='navbar-toggler-icon')
+					div( class="collapse navbar-collapse" id="navMobile")
+						ul(class="navbar-nav ml-auto" id='menu-navber')
+							li.nav-item(class= isHome ? 'current-menu-item' : ' ')
+								a(href='index.html', class='nav-link') Home
+							li.nav-item(class= isAbout ? 'current-menu-item' : ' ')
+								a(href='#about', class='nav-link') About
+							li.nav-item(class= isProduct ? 'current-menu-item' : ' ')
+								a(href='#product', class='nav-link') Products
+							li.nav-item(class= isGallery ? 'current-menu-item' : ' ')
+								a(href='#gallery', class='nav-link') Gallery
+							li.nav-item(class= isBlog ? 'current-menu-item' : ' ')
+								a(href='#blog', class='nav-link') Blog
+							li.nav-item(class= isContact ? 'current-menu-item' : ' ')
+								a(href='#contact', class='nav-link') Contact Us
+							li.nav-item.nav-item-login(class= isLogin ? 'current-menu-item' : ' ')
+								a(href='javascript:void(0)', class='nav-link') Login
+							li.nav-item.nav-item-signup(class= isSignup ? 'current-menu-item' : ' ')
+								a(href='javascript:void(0)', class='nav-link') Sign Up

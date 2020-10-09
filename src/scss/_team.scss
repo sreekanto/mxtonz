@@ -1,0 +1,13 @@
+.team-wrapper{
+	//@include linearGradient((to bottom, $danger 20rem, $light 20rem));
+	h5{
+		@include font(22px);
+		font-weight: bold;
+		color: #120e1a;
+	}
+	p{
+		@include font(16px);
+		font-weight: 400;
+		color: #3e3c43;
+	}
+}
